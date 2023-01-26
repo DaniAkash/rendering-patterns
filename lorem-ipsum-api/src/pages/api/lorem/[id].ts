@@ -10,7 +10,7 @@ export default function handler(
   const { id } = req.query
   if(id && typeof id === 'string') {
     // @ts-expect-error
-    res.status(200).json(data?.[parseInt(id, 10)])
+    res.status(200).json({data: data?.[parseInt(id, 10)]})
   }
   res.status(404)
 }
