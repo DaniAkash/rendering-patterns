@@ -4,8 +4,13 @@ import type { NextApiResponse, NextApiRequest } from 'next'
 type Data = string[]
 
 export default function handler(
-  _req: NextApiRequest,
+  req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json(data)
+  const { id } = req.query
+  if(id && typeof id === 'string') {
+    // @ts-expect-error
+    res.status(200).json(data?.[parseInt(id, 10)])
+  }
+  res.status(404)
 }
