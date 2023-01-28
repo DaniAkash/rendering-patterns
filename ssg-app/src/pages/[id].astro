@@ -1,0 +1,38 @@
+---
+const res = await fetch('https://lorem-ipsum-tau.vercel.app/api/lorem')
+const data = await res.json()
+
+export async function getStaticPaths() {
+  const res = await fetch('https://lorem-ipsum-tau.vercel.app/api/lorem')
+  const data = await res.json()
+  return data.map((_each, index) => {
+    return {
+      params: {
+        id: index
+      }
+    }
+  })
+}
+
+const { id } = Astro.params
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+        <main>
+            <div class={"pt-8 lg:grid lg:grid-cols-12 lg:gap-8"}>
+                <dt class={"text-base font-semibold leading-7 text-gray-900 lg:col-span-5"}>{`Post - ${(parseInt(id)).toString()}`}</dt>
+                <dd class={"mt-4 lg:col-span-7 lg:mt-0"}>
+                <p class={"text-base leading-7 text-gray-600"}>{data?.[id] ?? ""}</p>
+                </dd>
+            </div>
+        </main>
+    </body>
+</html>
