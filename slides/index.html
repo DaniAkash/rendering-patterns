@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1>SSR on the Edge 🌏</h1></section>
+				<section>
+					What is Edge?
+				</section>
+				<section>
+					Servers that are hosted close to the users
+					<p>Distributed across the Globe</p>
+					<p>Eg: CDNs</p>
+					<ul>
+						<li>AWS Cloudfront</li>
+						<li>Cloudflare CDN</li>
+					</ul>
+				</section>
+				<section>
+					What is SSR?
+				</section>
+				<section>
+					React powered Single Page Applications
+				</section>
+				<section>
+					Client side rendering
+				</section>
+				<section>
+					Client side rendering is great
+					<ul>
+						<li>Only need to host static files</li>
+						<li>Excellent UX once the page has been loaded</li>
+						<li>Great developer experience</li>
+						<li>Hiccups with SEO</li>
+						<li>Hosted on the Edge</li>
+					</ul>
+				</section>
+				<section>
+					Client side rendering is not so great
+					<ul>
+						<li>Initial page load leads to layout shift</li>
+						<li>Bad cold start times</li>
+						<li>Too much JS payload for the browsers over time</li>
+					</ul>
+				</section>
+				<section>
+					Introducing Server Rendering
+				</section>
+				<section>
+					Static Site Generation (SSG)
+				</section>
+				<section>
+					<p>SSG is great for</p>
+
+					<ul>
+						<li>Content rich websites</li>
+						<li>Extremely good SEO</li>
+						<li>Very Reliable websites</li>
+						<li>Hosted on the Edge</li>
+					</ul>
+				</section>
+				<section>
+					<p>Downsides of SSG</p>
+					<ul>
+						<li>Can't display dynamic content with same advantages</li>
+					</ul>
+				</section>
+				<section>
+					Server Side Rendering (SSR)
+				</section>
+				<section>
+					1. Renders the first HTML on the server
+				</section>
+				<section>
+					2. Lets client takeover on the browser
+				</section>
+				<section>
+					<p>SSR challenges</p>
+					<ul>
+						<li>Needs an active Node.js Server</li>
+						<li>Large Traffic will lead to the Server's death</li>
+						<li>Node.js Server doesn't live on the edge</li>
+					</ul>
+				</section>
+				<section>
+					Solving the scaling problem with serverless
+				</section>
+				<section>
+					Serverless Node has cold start & no edge location
+				</section>
+				<section>
+					Edge Compute
+				</section>
+				<section>
+					Very Lightweight Node-like environments that run close to the users
+				</section>
+				<section>
+					<ul>
+						<li>Deno (Deno Deploy, Netlify Functions)</li>
+						<li>Bun (Oven)</li>
+						<li>Workerd (Cloudflare Workers, Vercel)</li>
+					</ul>
+				</section>
+				<section>
+					Edge Environments lack native APIs like fs, tls etc.
+				</section>
+				<section>
+					Working with databases will be challenging as central data means more latency
+				</section>
+				<section>
+					Questions?
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				progress: false,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
