@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { tw } from 'twind'
 
 export default function IndividualPost({ data, id }) {
   return (
@@ -11,10 +10,10 @@ export default function IndividualPost({ data, id }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <div className={tw`pt-8 lg:grid lg:grid-cols-12 lg:gap-8`}>
-        <dt className={tw`text-base font-semibold leading-7 text-gray-900 lg:col-span-5`}>{`Post - ${(parseInt(id)).toString()}`}</dt>
-        <dd className={tw`mt-4 lg:col-span-7 lg:mt-0`}>
-          <p className={tw`text-base leading-7 text-gray-600`}>{data?.data ?? ""}</p>
+      <div className={"pt-8 lg:grid lg:grid-cols-12 lg:gap-8"}>
+        <dt className={"text-base font-semibold leading-7 text-gray-900 lg:col-span-5"}>{`Post - ${(parseInt(id)).toString()}`}</dt>
+        <dd className={"mt-4 lg:col-span-7 lg:mt-0"}>
+          <p className={"text-base leading-7 text-gray-600"}>{data?.data ?? ""}</p>
         </dd>
         </div>
       </main>
